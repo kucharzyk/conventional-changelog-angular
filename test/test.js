@@ -63,6 +63,7 @@ describe('angular preset', function() {
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
 
+        expect(chunk).to.include('first commit');
         expect(chunk).to.include('amazing new module');
         expect(chunk).to.include('**compile:** avoid a bug');
         expect(chunk).to.include('make it faster');
@@ -76,7 +77,6 @@ describe('angular preset', function() {
         expect(chunk).to.include('bad commit');
         expect(chunk).to.include('BREAKING CHANGES');
 
-        expect(chunk).to.not.include('first commit');
         expect(chunk).to.not.include('feat');
         expect(chunk).to.not.include('fix');
         expect(chunk).to.not.include('perf');
